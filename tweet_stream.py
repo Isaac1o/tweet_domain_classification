@@ -34,8 +34,8 @@ class Streamer(tweepy.StreamingClient):
                 )
                 # print('Sent data successfully')
             except Exception as e:
-                # print(e)
-                # print('Failed to stream data')
+                print(e)
+                print('Failed to stream data')
 
     def on_errors(self, errors):
         pass
