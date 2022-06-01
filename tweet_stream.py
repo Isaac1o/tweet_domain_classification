@@ -2,6 +2,7 @@ import pandas as pd
 import tweepy
 import boto3
 import os
+import time
 from utility.tweepy_helper import *
 
 
@@ -16,11 +17,14 @@ class Streamer(tweepy.StreamingClient):
             text = response.data.data['text']
             # If tweet is a retweet then look at the referenced tweet because RTs are truncated
             if text.startswith('RT'):
-                text = response.includes['tweets'][0]['text']
+                try:
+                    text = response.includes['tweets'][0]['text']
+                except:
+                    pass
             domain = response.data.data['context_annotations'][0]['domain']['name']
 
             data = f'{bytes(text, "utf-8")}<COMMA>{domain}\n'
-            print(data)
+            # print(data)
 
             # Send data to AWS
             try:
@@ -28,10 +32,10 @@ class Streamer(tweepy.StreamingClient):
                     DeliveryStreamName=DELIVERY_STREAM,
                     Record={'Data': data}
                 )
-                print('Sent data successfully')
+                # print('Sent data successfully')
             except Exception as e:
-                print(e)
-                print('Failed to stream data')
+                # print(e)
+                # print('Failed to stream data')
 
     def on_errors(self, errors):
         pass
@@ -49,4 +53,12 @@ if __name__ == '__main__':
 
     BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAJI7ZAEAAAAAfn%2Br3vNXQFCIH6tdU7j%2BwkbA9yA%3Dtzlg2QSiF7WLF876wpskwukQzXBxNK7BmNKTqjkMOs3Lw6qsOE'
     stream = Streamer(BEARER_TOKEN)
-    stream.sample(tweet_fields=['lang', 'context_annotations'], expansions='referenced_tweets.id')
+    while True:
+        try:
+            print('Streaming...')
+            stream.sample(tweet_fields=['lang', 'context_annotations'], expansions='referenced_tweets.id')
+        except Exception as e:
+            print(e)
+            print('Disconnected...')
+            time.sleep(3)
+            print('Reconnecting...')
