@@ -21,9 +21,17 @@ class Streamer(tweepy.StreamingClient):
                     text = response.includes['tweets'][0]['text']
                 except:
                     pass
-            domain = response.data.data['context_annotations'][0]['domain']['name']
 
-            data = f'{bytes(text, "utf-8")}<COMMA>{domain}\n'
+            # There may be multiple domains for each tweet. Iterate through all domains and concat into string.
+            domains = set()
+            for domain_data in response.data.data['context_annotations']:
+                domains.add(domain_data['domain']['name'])
+
+            domains = ','.join(domains)
+            # domain = response.data.data['context_annotations'][0]['domain']['name']
+
+            data = f'{bytes(text, "utf-8")},{domains}\n'
+            print(data)
             # print(data)
 
             # Send data to AWS
