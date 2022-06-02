@@ -27,10 +27,10 @@ class Streamer(tweepy.StreamingClient):
             for domain_data in response.data.data['context_annotations']:
                 domains.add(domain_data['domain']['name'])
 
-            domains = ','.join(domains)
+            domains = '<COMMA>'.join(domains)
 
-            data = f'{bytes(text, "utf-8")},{domains}\n'
-            # print(data)
+            data = f'{bytes(text, "utf-8")}<COMMA>{domains}\n'
+            print(data)
 
             # Send data to AWS
             try:
