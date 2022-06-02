@@ -3,7 +3,7 @@
 ## Goal
 Tweets contain a lot of information regarding different topics. We can agree that you can use multiple key
 words to explain a tweet. Twitter's api has an option to return the domain/entity of a tweet.
-For example, if we have a tweet that say "I took my dog on a walk outside today. We also stopped by the 
+For example, if we have a tweet: "I took my dog on a walk outside today. We also stopped by the 
 store to get groceries", we could label this tweet with different key words like "Pet", "Shopping",
 "Outdoors", etc.
 
@@ -20,3 +20,6 @@ of tweets for training. Currently, the stream is collecting about 1,500 tweets e
 After a couple of days we should have a sizable collection of tweets to work with.
 
 Lastly, the tweet stream will be deployed to an AWS EC2 instance for continuous streaming.
+
+### Labels
+![Labels](static/domain_labels.png)
