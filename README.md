@@ -23,3 +23,7 @@ Lastly, the tweet stream will be deployed to an AWS EC2 instance for continuous 
 
 ### Labels
 ![Labels](static/domain_labels.png)
+
+## Data
+The data is streamed to an AWS S3 bucket and stored in a text file. The data format is as follows for each tweet:
+`text_in_bytes<COMMA>label_1<COMMA>label_2<COMMA>label_n`
