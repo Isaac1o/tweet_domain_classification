@@ -28,10 +28,8 @@ class Streamer(tweepy.StreamingClient):
                 domains.add(domain_data['domain']['name'])
 
             domains = ','.join(domains)
-            # domain = response.data.data['context_annotations'][0]['domain']['name']
 
             data = f'{bytes(text, "utf-8")},{domains}\n'
-            print(data)
             # print(data)
 
             # Send data to AWS
@@ -40,7 +38,6 @@ class Streamer(tweepy.StreamingClient):
                     DeliveryStreamName=DELIVERY_STREAM,
                     Record={'Data': data}
                 )
-                # print('Sent data successfully')
             except Exception as e:
                 print(e)
                 print('Failed to stream data')
