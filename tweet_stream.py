@@ -12,8 +12,8 @@ class Streamer(tweepy.StreamingClient):
         self.tweet_fields = ['lang', 'context_annotations']
 
     def on_response(self, response):
+        # Check to see if tweet is in english and has domain labels
         if response.data.data['lang'] == 'en' and response.data.data.get('context_annotations'):
-            # print('*'*10, 'Processing Response...', '*'*10)
             text = response.data.data['text']
             # If tweet is a retweet then look at the referenced tweet because RTs are truncated
             if text.startswith('RT'):
