@@ -30,7 +30,7 @@ class Streamer(tweepy.StreamingClient):
             domains = '<COMMA>'.join(domains)
 
             data = f'{bytes(text, "utf-8")}<COMMA>{domains}\n'
-            print(data)
+            # print(data)
 
             # Send data to AWS
             try:
