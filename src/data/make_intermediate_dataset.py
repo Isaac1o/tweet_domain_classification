@@ -60,17 +60,20 @@ def make_interm_dataset(save_path):
 
     all_files = get_files(s3_client, BUCKET, PREFIX)  # Get all file paths
     all_data = []
-    for file in tqdm.tqdm(all_files[:10]):
+    for file in tqdm.tqdm(all_files):
         data = parse_data(s3_client, BUCKET, file)
         all_data = all_data + data
 
     # Put data into a dataframe
     df = pd.DataFrame(all_data)
 
-    df.to_csv(save_path, index=None)
+    df.to_csv(save_path + '/intermediate_tweets.csv', index=None)
     print(f'Saved to {save_path}')
 
 
 if __name__ == '__main__':
-    path = '../../data/intermediate/interm_tweets.csv'
-    make_interm_dataset(path)
+    dir_path = '../../data/intermediate'
+    if os.path.isdir(dir_path):
+        make_interm_dataset(dir_path)
+    else:
+        print(f'{dir_path} Not a valid directory')
