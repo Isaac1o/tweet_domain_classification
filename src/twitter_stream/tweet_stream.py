@@ -1,9 +1,7 @@
-import pandas as pd
-import tweepy
 import boto3
 import os
 import time
-from utility.tweepy_helper import *
+from NLP_Project.src.utility.tweepy_helper import *
 
 
 class Streamer(tweepy.StreamingClient):
