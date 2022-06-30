@@ -27,3 +27,35 @@ Lastly, the tweet stream will be deployed to an AWS EC2 instance for continuous 
 ## Data
 The data is streamed to an AWS S3 bucket and stored in a text file. The data format is as follows for each tweet:
 `text_in_bytes<COMMA>label_1<COMMA>label_2<COMMA>label_n`
+
+For this project we used 1M tweets and performed a 80-20 train test split.
+
+## Modeling
+The goal for this project is to train a deep learning text classification model. The two architectures used are RNN and LSTM.
+
+### RNN
+(DOM FILLS OUT HERE)
+(INCLUDE LINK TO NOTEBOOK)
+(INCLUDE METRICS OF DIFFERENT MODELS)
+
+### LSTM
+Long short-term memory models work excellent for a sequence based text classification task like this one. Due to the LSTM's "cell", this neural network is able to remember values over arbitrary time intervals unlike a RNN.
+
+To make the various LSTM models we trained comparable, we kept some hyper-parameters fixes:
+- Dropout = 0.3
+- Learning rate = 0.01
+- Epoches = 5
+- Batch size = 10,000
+- Relu activation function
+
+These are the hyper-parameters that we adjusted:
+- Word embedding size
+- LSTM hidden size
+- Number of LSTM layers
+- Number of linear layers
+
+Here are the results of the different models trained.
+
+[LSTM Notebook](https://github.com/Isaac1o/tweet_domain_classification/blob/main/notebooks/04_Isaac_Lo_LSTM.ipynb)
+
+
