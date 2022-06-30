@@ -48,6 +48,10 @@ Our adjusted hyper-parameters:
 
 Below are the results for the different RNN models. 
 
+![RNN Results](https://github.com/Isaac1o/tweet_domain_classification/blob/main/static/RNN_Results.png)
+
+[RNN Notebook](https://github.com/Isaac1o/tweet_domain_classification/blob/main/notebooks/Dominnic_Chant_RNN.ipynb)
+
 
 ### LSTM
 Long short-term memory models work excellent for a sequence based text classification task like this one. Due to the LSTM's "cell", this neural network is able to remember values over arbitrary time intervals unlike a RNN.
