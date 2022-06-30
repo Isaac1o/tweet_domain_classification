@@ -56,6 +56,8 @@ These are the hyper-parameters that we adjusted:
 
 Here are the results of the different models trained.
 
+![LSTM Results](https://github.com/Isaac1o/tweet_domain_classification/blob/main/static/Screen%20Shot%202022-06-29%20at%2011.17.47%20PM.png)
+
 [LSTM Notebook](https://github.com/Isaac1o/tweet_domain_classification/blob/main/notebooks/04_Isaac_Lo_LSTM.ipynb)
 
 
