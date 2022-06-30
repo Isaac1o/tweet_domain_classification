@@ -34,9 +34,20 @@ For this project we used 1M tweets and performed a 80-20 train test split.
 The goal for this project is to train a deep learning text classification model. The two architectures used are RNN and LSTM.
 
 ### RNN
-(DOM FILLS OUT HERE)
-(INCLUDE LINK TO NOTEBOOK)
-(INCLUDE METRICS OF DIFFERENT MODELS)
+Recurrent Neural Network is the most basic neural network architecture that handles sequential data for text classification tasks. It maintains a hidden state which is used to make predictions and is updated after every token in a sequence. A common disadvantage of RNN's are that they can't handle long term memory very well. 
+
+Our fixed hyper-parameters:
+- Number pochof epochs  = 5
+- ReLU layer
+- Number of linear layers = 2
+
+Our adjusted hyper-parameters:
+- Learning Rate
+- Word embedding size
+- Hidden layer size
+
+Below are the results for the different RNN models. 
+
 
 ### LSTM
 Long short-term memory models work excellent for a sequence based text classification task like this one. Due to the LSTM's "cell", this neural network is able to remember values over arbitrary time intervals unlike a RNN.
