@@ -76,3 +76,4 @@ Here are the results of the different models trained.
 [LSTM Notebook](https://github.com/Isaac1o/tweet_domain_classification/blob/main/notebooks/04_Isaac_Lo_LSTM.ipynb)
 
 
+[Project Slides](https://github.com/Isaac1o/tweet_domain_classification/blob/main/static/Final%20Tweet%20Classification%20Presentation.pdf)
